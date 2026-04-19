@@ -1,25 +1,25 @@
 import numpy as np
 
-def torricelli_edo(t, h, A_tanque, A_orificio, g=9.81):
+def torricelli_edo(t, h, area_tanque, area_orificio, gravedad=9.81, coef_descarga=1.0):
     """
-    Representa la EDO del vaciado de un tanque según la Ley de Torricelli.
-    
+    EDO del vaciado de un tanque según la Ley de Torricelli.
+
     Parámetros:
-    t: Tiempo (requerido por scipy.integrate)
-    h: Altura actual del fluido en el tanque (metros)
-    A_tanque: Área transversal del tanque (m^2)
-    A_orificio: Área del orificio de salida (m^2)
-    g: Aceleración de la gravedad (m/s^2)
-    
+        t            : Tiempo actual (requerido por scipy)
+        h            : Altura actual del fluido (metros)
+        area_tanque  : Área transversal del tanque (m²)
+        area_orificio: Área del orificio de salida (m²)
+        gravedad     : Aceleración gravitacional (m/s²)
+        coef_descarga: Factor de corrección del flujo, Cd (0 a 1)
+
     Retorna:
-    dh/dt: La tasa de cambio de la altura respecto al tiempo.
+        dh/dt: Tasa de cambio de la altura respecto al tiempo
     """
-    # Condición de seguridad para evitar raíces negativas por imprecisiones numéricas
     if h <= 0:
         return 0.0
-        
-    return -(A_orificio / A_tanque) * np.sqrt(2 * g * h)
+
+    return -(coef_descarga * area_orificio / area_tanque) * np.sqrt(2 * gravedad * h)
 
 def calcular_area_circular(radio):
-    """Calcula el área de un círculo dado su radio."""
+    """Calcula el área de un círculo dado su radio en metros."""
     return np.pi * (radio ** 2)
