@@ -13,7 +13,12 @@ class InterfazSimulador:
         self.raiz = raiz
         self.raiz.title("Simulador de Vaciado de Tanque - Ley de Torricelli")
         self.raiz.geometry("680x760")
-        self.raiz.resizable(False, False)
+        
+        # --- CAMBIO APLICADO AQUÍ ---
+        # Cambiamos False por True para permitir redimensionar ancho y alto
+        self.raiz.resizable(True, True) 
+        # ----------------------------
+        
         self.raiz.configure(bg="#f0f4f8")
 
         self._construir_interfaz(callback_simular)
@@ -58,9 +63,7 @@ class InterfazSimulador:
         self.entrada_altura_inicial = self._crear_campo(
             marco, "Altura inicial del agua (m):", "1.17", fila=1,
             ayuda="Nivel del agua al inicio de la simulación" 
-        
         )
-      
 
     def _crear_seccion_orificio(self):
         """Campos para los parámetros del orificio de salida."""
@@ -167,7 +170,6 @@ class InterfazSimulador:
             self._establecer_valor(self.entrada_radio_orificio, "0.00635")
         elif escenario == 3:
             self._establecer_valor(self.entrada_radio_orificio, "0.003")
-        # Escenario 4: personalizado, el usuario ingresa manualmente
 
     def _establecer_valor(self, entrada, valor):
         """Reemplaza el contenido de un campo de entrada."""
@@ -181,7 +183,6 @@ class InterfazSimulador:
     def obtener_parametros(self):
         """
         Retorna un diccionario con todos los parámetros ingresados por el usuario.
-        Lanza ValueError si algún campo tiene un valor inválido.
         """
         try:
             parametros = {
@@ -194,7 +195,6 @@ class InterfazSimulador:
         except ValueError:
             raise ValueError("Todos los campos deben contener valores numéricos válidos.")
 
-        # Validaciones básicas
         if parametros["radio_tanque"] <= 0:
             raise ValueError("El radio del tanque debe ser mayor a 0.")
         if not (0 < parametros["altura_inicial"] <= 10):
@@ -218,20 +218,3 @@ class InterfazSimulador:
         self.eje.legend()
         self.eje.grid(True, linestyle="--", alpha=0.6)
         self.canvas_grafica.draw()
-
-
-# ─────────────────────────────────────────────
-# PRUEBA RÁPIDA (ejecutar directamente este archivo)
-# ─────────────────────────────────────────────
-if __name__ == "__main__":
-    def simular():
-        try:
-            datos = app.obtener_parametros()
-            app.actualizar_estado(f"Parámetros OK — Altura: {datos['altura_inicial']} m", "green")
-            print("Parámetros recibidos:", datos)
-        except ValueError as error:
-            app.actualizar_estado(str(error), "red")
-
-    raiz = tk.Tk()
-    app = InterfazSimulador(raiz, simular)
-    raiz.mainloop()

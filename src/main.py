@@ -49,5 +49,11 @@ def controlador_simulacion():
 # ─────────────────────────────────────────────
 if __name__ == "__main__":
     raiz = tk.Tk()
+    
+    # --- CAMBIO AGREGADO AQUÍ ---
+    # Permite que la ventana se pueda maximizar y estirar libremente
+    raiz.resizable(True, True) 
+    # ----------------------------
+
     app = InterfazSimulador(raiz, controlador_simulacion)
     raiz.mainloop()
