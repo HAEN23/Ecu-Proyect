@@ -1,0 +1,23 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Resumen}{2}{section.1}%
+\contentsline {section}{\numberline {2}Introducción}{2}{section.2}%
+\contentsline {section}{\numberline {3}Marco Teórico}{2}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Ley de Torricelli}{2}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Ecuación Diferencial del Sistema}{3}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Solución Analítica}{3}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Modelo Matemático}{4}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Variables y Parámetros}{4}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Condición Inicial}{4}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Metodología — Implementación en Python}{4}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Estructura del Proyecto}{4}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Implementación de la EDO}{4}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Resolución Numérica}{5}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Resultados y Gráficas}{5}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Gráfica de Altura vs Tiempo}{5}{subsection.6.1}%
+\contentsline {section}{\numberline {7}Animación}{6}{section.7}%
+\contentsline {section}{\numberline {8}Modelo Predictivo — Aplicación Real}{6}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Caso: Tinaco Doméstico}{6}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Interpretación}{7}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Análisis de Resultados}{7}{section.9}%
+\contentsline {section}{\numberline {10}Conclusiones}{7}{section.10}%
+\contentsline {section}{\numberline {11}Referencias}{7}{section.11}%
